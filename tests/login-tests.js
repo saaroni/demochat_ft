@@ -1,23 +1,22 @@
 var LFT = require("leanft");
 var Web = LFT.Web;
 var whenDone = LFT.whenDone;
-var expect = require("leanft/expect");
 var verify = require("leanft/verify");
-//var URL="http://192.168.99.100:32768/";
 var URL="http://"+(process.env.APPURL|| "aut:5000")+"/";
 console.log("url is:"+URL);
+
 describe("login tests",function(){
 	this.timeout(2*60*1000);
 	var browser;
 	var registeredUser;
 	beforeEach(function(done){
 		setTimeout(function (){
-		LFT.init();
-		Web.Browser.launch("chrome").then(function(resBrowser){
-			browser = resBrowser;
-		});
-		whenDone(done);
-	},2000);
+			LFT.init();
+			Web.Browser.launch("chrome").then(function(resBrowser){
+				browser = resBrowser;
+			});
+			whenDone(done);
+		},2000);
 	});
 
 	var getRandomIntInclusive = function(min, max) {
